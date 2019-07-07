@@ -1,25 +1,19 @@
 def nyc_pigeon_organizer(data)
-  organized_pigeons = {}
-
-  data.each do |traits, traits_hash|
-
-    traits_hash.each do |details, details_array|
-
-      details_array.each do |name|
-
-        if organized_pigeons[name] == nil
-          organized_pigeons[name] = {}
+  new_hash = }
+  data.each do |key, value|
+    value.each do |new_value, names|
+      names.each do |name|
+        if !new_hash[name]
+          new_hash[name] = {}
         end
-
-        if organized_pigeons[name][traits] == nil
-          organized_pigeons[name][traits] = []
+        if !new_hash[name][key]
+          new_hash[name][key] = []
         end
-
-        organized_pigeons[name][traits] << details.to_s
-
-       end
+        new_hash[name]key] << new_value.to_s 
+      end
     end
   end
-
-   organized_pigeons
-end	end
+  
+  new_hash
+  
+end 
