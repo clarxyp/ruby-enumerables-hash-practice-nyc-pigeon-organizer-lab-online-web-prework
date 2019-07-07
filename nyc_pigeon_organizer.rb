@@ -1,24 +1,28 @@
 def nyc_pigeon_organizer(data)
+  organized_pigeons = {}
 
-organized_pigeons = {}
+  data.each do |traits, traits_hash|
+    # search traits_hash for details
+    traits_hash.each do |details, details_array|
+      # search details_array for names
+      details_array.each do |name|
 
-data.each do |traits, traits_hash|
-  traits_hash.each do |details, details_array|
-    details_array.each do |name|
-      
-      if organized_pigeons[name] == nil 
-        organized_pigeons = {}
-      end
-      
-      if organized_pigeons[name][traits] == nil
-        organized_pigeons[name][traits] = []
-      end
-      
-      organized_pigeons[name][traits] << details.to_s 
-      
-      end 
+         # if organized_pigeons[name] doesn't exist, create empty hash
+        if organized_pigeons[name] == nil
+          organized_pigeons[name] = {}
+        end
+
+         # if organized_pigeons[name][traits] doesn't exist, create empty array
+        if organized_pigeons[name][traits] == nil
+          organized_pigeons[name][traits] = []
+        end
+
+         # shovel details as strings into traits array
+        organized_pigeons[name][traits] << details.to_s
+
+       end
     end
-  end 
+  end
 
-  organized_pigeons
-end
+   organized_pigeons
+end	end
